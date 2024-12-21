@@ -7,23 +7,24 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/Flask-PyMongo-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/Flask-PyMongo-{{ version }}.tar.gz
   sha256: 620eb02dc8808a5fcb90f26cab6cba9d6bf497b15032ae3ca99df80366e33314
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
     - vcversioner
+    - setuptools
   run:
     - flask >=0.11
     - pymongo >=3.3
-    - python >=3.6
+    - python >={{ python_min }}
 
 test:
   imports:
@@ -33,6 +34,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: http://flask-pymongo.readthedocs.org/
