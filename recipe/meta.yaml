@@ -1,5 +1,5 @@
 {% set name = "flask-pymongo" %}
-{% set version = "2.3.0" %}
+{% set version = "3.0.0" %}
 
 
 package:
@@ -7,11 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/Flask-PyMongo-{{ version }}.tar.gz
-  sha256: 620eb02dc8808a5fcb90f26cab6cba9d6bf497b15032ae3ca99df80366e33314
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name | replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: cb73197f25a1aa0621e032f03a7d7814f54f5a472e0b3fa34a7b63d00246b156
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
