@@ -30,7 +30,6 @@ requirements:
 test:
   imports:
     - flask_pymongo
-    - flask_pymongo.tests
   commands:
     - pip check
   requires:
